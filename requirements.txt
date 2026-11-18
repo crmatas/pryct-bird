@@ -4,5 +4,9 @@ langchain-community
 langchain-ollama
 langchain-chroma
 langchain-text-splitters
+langgraph
 chromadb
 pypdf
+fastapi
+uvicorn
+requests
