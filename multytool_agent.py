@@ -12,6 +12,22 @@ from langchain_core.messages import (
     ToolMessage
 )
 
+from typing import Annotated, Sequence, TypedDict
+
+from langchain_community.chat_models import ChatOllama
+from langchain_core.messages import BaseMessage, SystemMessage
+from langchain_core.tools import tool
+
+from langgraph.graph import END, START, StateGraph
+from langgraph.graph.message import add_messages
+from langgraph.prebuilt import ToolNode
+
+
+class AgentState(TypedDict):
+    # 'add_messages' is a reducer that appends
+    # new messages to the conversation history.
+    messages: Annotated[Sequence[BaseMessage], add_messages]
+
 # ============================================================
 # 1. GENERAL SETTINGS
 # ============================================================
